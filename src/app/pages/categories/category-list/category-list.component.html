@@ -18,8 +18,8 @@
         </div>
      </div>
     <div>
-        <mat-progress-bar mode="query" *ngIf="dataSource.loading$ | async"></mat-progress-bar>
-        <table mat-table matSort  [dataSource]="dataSource">
+        <mat-progress-bar mode="query" *ngIf="tableController.dataSource.loading$ | async"></mat-progress-bar>
+        <table mat-table matSort  [dataSource]="tableController.dataSource">
             <ng-container matColumnDef="SELECT">
                 <th mat-header-cell *matHeaderCellDef>
                     
@@ -27,7 +27,7 @@
                 <td mat-cell *matCellDef="let element">  
                     <mat-checkbox (click)="$event.stopPropagation()"
                     (change)="$event ? changeSelector(element) : null"
-                    [checked]="selection.isSelected(element)">
+                    [checked]="tableController.selection.isSelected(element)">
                     </mat-checkbox>
                 </td>
             </ng-container>
@@ -48,11 +48,11 @@
                 <td mat-cell *matCellDef="let element"> {{this.getTranslate(element.status ) | translate }} </td>
             </ng-container>
     
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            <tr mat-header-row *matHeaderRowDef="tableController.displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: tableController.displayedColumns;">
             </tr>
         </table>
-        <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 15, 100]" [length]="dataSource.paginatorTotal$ | async" showFirstLastButtons></mat-paginator>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 15, 100]" [length]="tableController.dataSource.paginatorTotal$ | async" showFirstLastButtons></mat-paginator>
     </div>
 
 </div>
