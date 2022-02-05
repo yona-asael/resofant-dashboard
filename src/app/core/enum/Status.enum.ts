@@ -1,0 +1,11 @@
+
+
+export enum STATUS {
+    ACTIVE = "ACTIVE",
+    REVIEW = "REVIEW",
+    INACTIVE = "INACTIVE",
+    PEDING = "PEDING",
+    OCCUPIED = "OCCUPIED",
+    DISABLED = "DISABLED",
+    COMPLETED = "COMPLETED",
+}

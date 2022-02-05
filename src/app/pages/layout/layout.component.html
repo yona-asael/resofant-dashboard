@@ -1,6 +1,37 @@
 <mat-toolbar color="primary">
-    <span translate>layout.Hello</span>
+    <span translate>layout.title</span>
     <div class="spacer"></div>
     <mat-slide-toggle [checked]="isDarkMode" (change)="toggle()">Theme</mat-slide-toggle>
-
 </mat-toolbar>
+<div class="drawer">
+
+<mat-drawer-container fullscreen class="drawer-container" >
+    <mat-drawer mode="side" opened class="drawer-container-sidebar" color="primary">
+        
+        <mat-list role="nav">
+            <ng-container *ngFor="let item of navMenu">
+                <div class="item-line"></div>
+                <mat-list-item [ngClass]="{color: item.status}" routerLink="{{item.route}}"   role="nav" class="item">
+                    <mat-icon [ngClass]="{color: item.status}" class="item-icon">{{item.icon}}</mat-icon>
+                    <div [ngClass]="{color: item.status}" >{{item.text | translate}}</div> 
+                </mat-list-item>
+            </ng-container>
+
+            <div class="item-line"></div>
+          </mat-list>
+          
+
+    </mat-drawer>
+    <mat-drawer-content class="drawer-container-content" >
+        <mat-card class="drawer-container-content-card">
+            <mat-card-title>
+                {{title | translate}}
+                <div class="drawer-container-content-card-title__line"></div>
+            </mat-card-title>
+            <mat-card-content>
+                <router-outlet></router-outlet>
+            </mat-card-content>
+        </mat-card>
+    </mat-drawer-content>
+</mat-drawer-container>
+</div>

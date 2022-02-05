@@ -22,9 +22,10 @@ export class BaseService {
     };
 
     constructor(
+        private endpoint: string,
         protected http: HttpClient,
     ) { 
-        this.API = environment.production ? environment.API_ENDPOINT : '/';
+        this.API = `${environment.production ? environment.API_ENDPOINT : '/api'}${endpoint}`;
     }
 
     protected get<T>(url: string): Observable<T> {
@@ -41,7 +42,7 @@ export class BaseService {
         );
     }
 
-    protected put<T>(url: string, object: IBase | Model): Observable<T> {
+    protected put<T>(url: string, object?: IBase | Model): Observable<T> {
         return this.http.put<T>(url, JSON.stringify(object), this.httpOptions).pipe(
             retry(1),
             catchError(this.handleError)
@@ -65,7 +66,6 @@ export class BaseService {
 
     public getAllPaginated<T>(query: QueryStringModel =  new QueryStringModel()): Observable<Response<PageModel<T>>> {
         this.httpOptions.params = this.toHttpParams(query.getHTTPParamsCriteria);
-        Response
         return this.get<Response<PageModel<T>>>('');
     }
 

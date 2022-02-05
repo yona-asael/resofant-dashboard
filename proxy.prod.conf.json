@@ -1,0 +1,12 @@
+{
+    "/api/": {
+        // set correct value
+      "target": "https://api.snteseccion1.org",
+      "secure": false,
+      "logLevel": "debug",
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    }
+  }

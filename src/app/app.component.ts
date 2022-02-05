@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateConfigService } from './core/services/translate/translate-config.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'resofant-dashboard';
+  constructor(public translateService: TranslateConfigService) {
+    
+  }
 }

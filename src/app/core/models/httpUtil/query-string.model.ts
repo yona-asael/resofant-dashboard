@@ -37,14 +37,12 @@ export class QueryStringModel {
     public get getHTTPParamsCriteria(): IHTTPParamsCriteria [] {
         let array = [...this.genericParams];
         array = this.pushItem(this.hasSearchCriterias, this.searchCriteriaBuilder, array);
-        array = this.pushItem(this.hasPagination, this.paginatorBuilder, array);
-        array = this.pushItem(this.hasSorting, this.sortingBuilder, array);
+        if(this.hasPagination) array.push(...this.pagination.getPaginator)
+        if(this.hasSorting) array.push(...this.sortingBuilder)
         return array;
     }
 
-    private get paginatorBuilder(): IHTTPParamsCriteria {
-        return {key: QueryStringEnum.PAGINATION, value: this.pagination.getPaginator} as IHTTPParamsCriteria;
-    }
+
 
     private get searchCriteriaBuilder(): IHTTPParamsCriteria {
         let search = '';
@@ -56,17 +54,12 @@ export class QueryStringModel {
         return {key: QueryStringEnum.SEARCH, value: search} as IHTTPParamsCriteria;
     }
 
-    private get sortingBuilder(): IHTTPParamsCriteria {
-        let storing = '';
-        this.sortings.forEach( (sort, indx) =>    
-            (indx !== this.sortings.length - 1) ? 
-            storing += `${sort.query},` 
-            : storing += `${sort.query}`
-        )
-        return {key: QueryStringEnum.SORT, value: storing} as IHTTPParamsCriteria; 
+    private get sortingBuilder(): IHTTPParamsCriteria[] {
+        const sorts = this.sortings.map((value) => value.query);
+        return sorts;
     }
 
-    private pushItem(toPush: boolean, value : IHTTPParamsCriteria ,array: IHTTPParamsCriteria[]): IHTTPParamsCriteria[] {
+    private pushItem(toPush: boolean, value : IHTTPParamsCriteria,array: IHTTPParamsCriteria[]): IHTTPParamsCriteria[] {
         if(toPush) {
             array.push(value);
         } 

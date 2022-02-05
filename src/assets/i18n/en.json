@@ -1,5 +1,130 @@
 {
     "layout": {
-        "Hello": "Title"
+        "title": "Resofant",
+        "nav": {
+            "home": "Home",
+            "orders": "Orders",
+            "products": "Products",
+            "types": "Types",
+            "categories": "Categories"
+            
+        },
+        "card": {
+            "title": {
+                "home": "Home",
+                "types": "Types",
+                "products": "Products",
+                "orders": "Orders",
+                "categories": {
+                    "list": "Categories",
+                    "edit": {
+                        "create": "Create Category",
+                        "edit": "Update Category",
+                        "preview": "See Category"
+                    }
+                }
+            }
+        }
+    },
+    "title": {
+        "home": "Home",
+        "orders": {
+            "root": "Orders",
+            "create": "Create Order",
+            "edit": "Edit Order",
+            "preview": "Preview Order"
+        },
+        "categories": {
+            "root": "Categories",
+            "create": "Create Category",
+            "edit": "Edit Category",
+            "preview": "Preview Category"
+        },
+        "products": {
+            "root": "Products",
+            "create": "Create Product",
+            "edit": "Edit Product",
+            "preview": "Preview Product"
+        }, 
+        "types": {
+            "root": "Types of Products",
+            "create": "Create Type",
+            "edit": "Edit Type",
+            "preview": "Preview Type"
+        }
+    },
+    "forms": {
+        "slug": "Identificator",
+        "name": "Name",
+        "status": "Status",
+        "create": {
+            "slug": "Identificator",
+            "name": "Name of the product",
+            "status": "Current Status",
+            "text": "Texto",
+            "type": "Text type",
+            "lang": "Lenguage"
+        }
+    },
+    "types": {
+        "name": "name",
+        "desc": "Description"
+    },
+    "status": {
+        "ACTIVE": "Active",
+        "REVIEW": "Review",
+        "INACTIVE": "Inactive",
+        "PEDING": "Pending",
+        "OCCUPIED": "Occupied",
+        "DISABLED": "Disabled",
+        "COMPLETED": "Completed"
+    },
+    "table": {
+        "slug": "Indetificator",
+        "name": "Name",
+        "status": "Estado",
+        "description": "Description",
+        "text": "Text",
+        "type": "Type",
+        "lang": "Lenguage"
+    },
+    "fab": {
+        "add": "Create new element",
+        "edit": "Edit element",
+        "preview": "Preview element",
+        "delte": "Delete element"
+    },
+    "lang": {
+        "es": "Spanish",
+        "en": "English"
+    },
+    "actions": {
+        "create": "Create",
+        "update": "Update",
+        "delete": "Delete"
+    },
+    "notifications": {
+        "form": {
+            "miss": {
+                "title": "Invalid Data",
+                "msg": "Check you data"
+            }
+        },
+        "data": {
+            "exists": {
+                "title": "The data exists",
+                "msg": "The actual data exists"
+            },
+            "category": {
+                "save": {
+                    "title": "Check you data",
+                    "msg": "Identificator null or language not have"
+                }
+            }
+        }
+    },
+    "navigation": {
+        "create": "Create Element",
+        "back": "Back"
     }
 }

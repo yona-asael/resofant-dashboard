@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <div class="wrapper-container-forms" [formGroup]="categoryForm">
+        <mat-form-field>
+            <input matInput formControlName="slug"  placeholder="{{'forms.create.slug' | translate}}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"forms.status" | translate}}</mat-label>
+            <mat-select formControlName="status" >
+                <mat-option *ngFor="let item of statusSelect" [value]="item.value.toString()">{{item.label | translate}}</mat-option>
+            </mat-select>
+        </mat-form-field>   
+
+        <button mat-raised-button  
+            [routerLink]="[baseRoute]" 
+            class="wrapper-container-button wrapper-container-button-margin" 
+            color="warn">
+        {{'navigation.back' | translate}}
+        </button>
+            <button 
+            *ngIf="!readonly" 
+            mat-raised-button  
+            (click)="save()"
+                class="wrapper-container-button" 
+                color="primary">
+            {{type | translate}}
+            </button>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="wrapper-container">
+        <div class="wrapper-container-forms" [formGroup]="categoryForm">
+            <mat-form-field>
+                <input matInput formControlName="text" placeholder="{{'forms.create.text' | translate}}">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{'forms.create.type' | translate}}</mat-label>
+                <mat-select  formControlName="type" >
+                    <mat-option *ngFor="let item of textTypes" value="{{item.value}}">{{item.label | translate}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{'forms.create.lang' | translate}}</mat-label>
+                <mat-select formControlName="lang">
+                    <mat-option *ngFor="let item of langs" value="{{item}}">{{ 'lang.' + item | translate}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button 
+        *ngIf="!readonly" 
+        class="wrapper-container-button" 
+        color="primary" 
+        (click)="addTranslation()"> {{type | translate}} </button>
+        <button mat-raised-button 
+        *ngIf="!isUpdate && !readonly" 
+        class="wrapper-container-button" 
+        color="warn" (click)="removeTranslation()"
+        > {{'actions.delete' | translate}} </button>
+    </div>
+    <translations-list [translations]="translations" (item)="selectTranslation($event)"></translations-list>
+</div>

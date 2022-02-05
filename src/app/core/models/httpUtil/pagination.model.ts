@@ -1,3 +1,5 @@
+import { IHTTPParamsCriteria } from "../../interfaces/HTTPUtil/http-params-criteria.interface";
+
 export class PaginationModel {
     public pageIndex: number;
     public pageSize: number;
@@ -7,7 +9,10 @@ export class PaginationModel {
         this.pageSize = size;
     }
 
-    public get getPaginator(): string {
-        return `pageIndex:${this.pageIndex}:pageSize:${this.pageSize}`;
+    public get getPaginator(): IHTTPParamsCriteria[] {
+        return [
+            {key: 'pageIndex', value: this.pageIndex.toString()},
+            {key: 'pageSize', value: this.pageSize.toString()}
+        ];
     }
 }

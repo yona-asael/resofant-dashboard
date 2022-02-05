@@ -1,0 +1,29 @@
+<div class="wrapper">
+    <table mat-table matSort matSortDirection="asc" [dataSource]="dataSource">
+        <ng-container matColumnDef="SELECT">
+            <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+    
+          <mat-checkbox  #checkboxMultiple
+          (click)="$event.stopPropagation()"
+          (change)="selectItem(element)"
+          [checked]="element.checked"
+          ></mat-checkbox>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="TEXT">
+            <mat-header-cell *matHeaderCellDef> {{'table.text' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.data.text}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="TYPE">
+            <mat-header-cell *matHeaderCellDef> {{'table.type' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ getType(element.data.type)| translate}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="LANG">
+            <mat-header-cell *matHeaderCellDef> {{'table.lang' | translate }} </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{'lang.' + element.data.lang | translate }} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+</div>

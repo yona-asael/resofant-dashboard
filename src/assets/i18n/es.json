@@ -1,5 +1,138 @@
 {
     "layout": {
-        "Hello": "Titulo"
+        "title": "Resofant",
+        "nav": {
+            "home": "Home",
+            "orders": "Ordenes",
+            "products": "Productos",
+            "types": "Tipo",
+            "categories": "Categoria"
+        },
+        "card": {
+            "title": {
+                "home": "Inicio",
+                "types": "Tipo de Producto",
+                "products": "Productos",
+                "orders": "Ordenes",
+                "categories": {
+                    "list": "Categorias",
+                    "edit": {
+                        "create": "Crear Categoria",
+                        "edit": "Ver Categoria",
+                        "preview": "Previsualizar Categoria"
+                    }
+                }
+            }
+        }
+    },
+    "routes": {
+        "products": "productos",
+        "orders": "ordenes",
+        "categories": "categorias",
+        "types": "tipos",
+        "create": "crear",
+        "edit": "editar",
+        "preview": "previsualizacion"
+    },
+    "title": {
+        "home": "Incio",
+        "orders": {
+            "root": "Ordenes",
+            "create": "Crear Orden",
+            "edit": "Editar Orden",
+            "preview": "Previsualizar Orden"
+        },
+        "categories": {
+            "root": "Categorias",
+            "create": "Crear Categoria",
+            "edit": "Editar Categoria",
+            "preview": "Previsualizar Categoria"
+        },
+        "products": {
+            "root": "Productos",
+            "create": "Crear Producto",
+            "edit": "Editar Producto",
+            "preview": "Previsualizar Producto"
+        }, 
+        "types": {
+            "root": "Tipos de Productos",
+            "create": "Crear Tipo",
+            "edit": "Editar Tipo",
+            "preview": "Previsualizar Tipo"
+        }
+    },
+    "forms": {
+        "slug": "Identificador",
+        "name": "Nombre",
+        "status": "Estado",
+        "create": {
+            "slug": "Identificador",
+            "name": "Nombre del producto",
+            "status": "Estado actual",
+            "text": "Texto",
+            "type": "Tipo de texto",
+            "lang": "Lenguaje"
+        }
+    },
+    "types": {
+        "name": "Nombre",
+        "desc": "Descripcion"
+    },
+    "status": {
+        "ACTIVE": "Activo",
+        "REVIEW": "Revision",
+        "INACTIVE": "Inactivo",
+        "PEDING": "Pendiente",
+        "OCCUPIED": "Ocupado",
+        "DISABLED": "Desabilitado",
+        "COMPLETED": "Completo"
+    },
+    "table": {
+        "slug": "Identificador",
+        "name": "Nombre",
+        "status": "Estado",
+        "description": "Descripcion",
+        "text": "Texto",
+        "type": "Tipo",
+        "lang": "Lenguaje"
+    },
+    "fab": {
+        "add": "Crear nuevo elemento",
+        "edit": "Editar elemento",
+        "preview": "Ver elemento",
+        "delte": "Eliminar elemento"
+    },
+    "lang": {
+        "es": "Español",
+        "en": "Ingles"
+    },
+    "actions": {
+        "create": "Guardar",
+        "update": "Actualizar",
+        "delete": "Eliminar"
+    },
+    "notifications": {
+        "form": {
+            "miss": {
+                "title": "Datos invalidos",
+                "msg": "Revise los datos"
+            }
+        },
+        "data": {
+            "exists": {
+                "title": "Datos existentes",
+                "msg": "Ya existen los datos actuales"
+            },
+            "category": {
+                "save": {
+                    "title": "Revise los datos",
+                    "msg": "Indetificardor vacio o sin traducciones"
+                }
+            }
+        }
+    },
+    "navigation": {
+        "create": "Crear Elemento",
+        "back": "Regresar"
     }
 }
