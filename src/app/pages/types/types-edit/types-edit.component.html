@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="wrapper-container-forms" [formGroup]="categoryForm">
+    <div class="wrapper-container-forms" [formGroup]="typeForm">
         <mat-form-field>
             <input matInput formControlName="slug"  placeholder="{{'forms.create.slug' | translate}}">
         </mat-form-field>
@@ -9,6 +9,7 @@
                 <mat-option *ngFor="let item of statusSelect" [value]="item.value.toString()">{{item.label | translate}}</mat-option>
             </mat-select>
         </mat-form-field>   
+        <category-auto [control]="autControl"></category-auto>
 
         <button mat-raised-button  
             [routerLink]="[baseRoute]" 
@@ -22,7 +23,7 @@
             (click)="save()"
                 class="wrapper-container-button" 
                 color="primary">
-            {{type | translate}}
+            {{typeText | translate}}
             </button>
     </div>
 
@@ -49,7 +50,7 @@
         *ngIf="!readonly" 
         class="wrapper-container-button" 
         color="primary" 
-        (click)="addTranslation()"> {{type | translate}} </button>
+        (click)="addTranslation()"> {{typeText | translate}} </button>
         <button mat-raised-button 
         *ngIf="!isUpdate && !readonly" 
         class="wrapper-container-button" 

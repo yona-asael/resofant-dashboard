@@ -1,13 +1,12 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { TranslateConfigService } from './services/translate/translate-config.service';
-import {MatToolbarModule} from '@angular/material/toolbar'; 
 import { ThemeService } from './services/theme/theme.service';
 import { StatusInterceptor } from './interceptors/status.interceptor';
 
 @NgModule({
-  imports: [HttpClientModule, MatToolbarModule],
-  exports: [HttpClientModule, MatToolbarModule],
+  imports: [HttpClientModule],
+  exports: [HttpClientModule],
   providers: [
     TranslateConfigService,
     ThemeService,

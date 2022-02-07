@@ -1,0 +1,19 @@
+<mat-form-field>
+    <mat-label>{{'autoComplete.type.title' | translate}}</mat-label>
+  <input matInput class="input-size" #inputElement placeholder="{{'autoComplete.type.msg' | translate}}" [formControl]="control"
+  [matAutocomplete]="areaSelect" (focus)="onFocus()" (keyup.enter)="keyUpEnter()">
+  <mat-autocomplete #areaSelect="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngIf="loading$ | async" class="is-loading">
+      <mat-spinner diameter="30"></mat-spinner>
+    </mat-option>
+    <mat-option *ngIf="!(loading$ | async) && !haveItems" matTooltip="{{'autoComplete.type.not' | translate}}" [disabled]="true">
+      {{'autoComplete.type.not' | translate}}
+    </mat-option>
+    <ng-container *ngFor="let entity of entity$ | async">
+      <mat-option *ngIf="!(loading$ | async)" matTooltip="{{ entity.name }}" [value]="entity"
+      (onSelectionChange)="selectedEntity(entity)">
+      {{entity.slug}} | {{ entity.name }} 
+    </mat-option>
+  </ng-container>
+</mat-autocomplete>
+</mat-form-field>

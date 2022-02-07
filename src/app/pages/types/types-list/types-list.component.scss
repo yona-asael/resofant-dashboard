@@ -1,0 +1,42 @@
+
+.wrapper {
+
+    &-container {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: center;
+        gap: 50px;
+        @media (max-width: 740px) {
+            flex-flow: column-reverse wrap;
+            justify-content: flex-start;
+        }
+        &-forms {
+            display: flex;
+            flex-flow: row wrap;
+            gap: 50px;
+            @media (max-width: 740px) {
+                flex-flow: column wrap;
+                justify-content: flex-start;
+            }
+        }
+        &-button {
+            max-height: 36px;
+            margin-left: auto;
+        }
+    }
+
+    &-table {
+        width: 100%;
+
+    }
+}
+
+table {
+    width: 100%;
+    
+}
+
+.mat-form-field{
+    width:220px !important;
+ }

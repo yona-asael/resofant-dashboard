@@ -4,6 +4,7 @@ import { catchError, retry } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 import { IBase } from "../interfaces/base.interface";
 import { IHTTPParamsCriteria } from "../interfaces/HTTPUtil/http-params-criteria.interface";
+import { ITranslation } from "../interfaces/translation.interface";
 import { QueryStringModel } from "../models/httpUtil/query-string.model";
 import { Model } from "../models/model";
 import { PageModel } from "../models/page.model";
@@ -86,6 +87,10 @@ export class BaseService {
     protected toHttpHeaders(params: IHTTPParamsCriteria[]): HttpHeaders {
         return params.reduce((p, param) => p.set(param.key, param.value), new HttpHeaders());
     }  
+
+    public updateTransBySlug(slug: string, trans: ITranslation): Observable<Response<boolean>> {
+        return this.put<Response<boolean>>(`${this.API}/${slug}/translations`, trans);
+      }
 
     protected handleError(error: any): Observable<never> {
         let errorMessage = '';

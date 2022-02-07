@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ITranslation } from 'src/app/core/interfaces/translation.interface';
 import {SelectionModel} from '@angular/cdk/collections';
 import { ITableCheck } from 'src/app/core/interfaces/table.checks.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'translations-list',
@@ -18,10 +19,15 @@ export class TranslationsListComponent implements OnInit, OnChanges {
   public dataSource: MatTableDataSource<ITableCheck<ITranslation>>;
   public selection = new SelectionModel<ITableCheck<ITranslation>>(true, []);
   @ViewChildren('checkboxMultiple') private checkboxesMultiple : QueryList<any>;
+  public readonly: boolean;
 
-  constructor() { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+  ) { }
 
   public ngOnInit(): void {
+    this.readonly = this.activatedRoute.snapshot.data['readonly'];
+    if(this.readonly ) this.displayedColumns = this.displayedColumns.filter( (value) => value !== "SELECT")
     this.dataSource = new MatTableDataSource<ITableCheck<ITranslation>>(this.translations);
   }
 

@@ -11,15 +11,29 @@
         "card": {
             "title": {
                 "home": "Inicio",
-                "types": "Tipo de Producto",
-                "products": "Productos",
                 "orders": "Ordenes",
                 "categories": {
                     "list": "Categorias",
                     "edit": {
                         "create": "Crear Categoria",
-                        "edit": "Ver Categoria",
+                        "edit": "Modificar Categoria",
                         "preview": "Previsualizar Categoria"
+                    }
+                },
+                "types": {
+                    "list": "Tipo de producto",
+                    "edit": {
+                        "create": "Crear Tipo de producto",
+                        "edit": "Modificar Tipo de producto",
+                        "preview": "Previsualizar Tipo de producto"
+                    }
+                },
+                "products": {
+                    "list": "Productos",
+                    "edit": {
+                        "create": "Crear Producto",
+                        "edit": "Modificar Producto",
+                        "preview": "Previsualizar Producto"
                     }
                 }
             }
@@ -71,7 +85,20 @@
             "status": "Estado actual",
             "text": "Texto",
             "type": "Tipo de texto",
-            "lang": "Lenguaje"
+            "lang": "Lenguaje",
+            "price": "Precio"
+        }
+    },
+    "autoComplete": {
+        "category": {
+            "title": "Categoria",
+            "not": "Categorias no encontrados",
+            "msg": "Buscar Categorias por identificador"
+        },
+        "type": {
+            "title": "Tipo de productos",
+            "not": "Tipos no encontrados",
+            "msg": "Buscar tipo por identificador"
         }
     },
     "types": {
@@ -94,7 +121,8 @@
         "description": "Descripcion",
         "text": "Texto",
         "type": "Tipo",
-        "lang": "Lenguaje"
+        "lang": "Lenguaje",
+        "category": "Categoria"
     },
     "fab": {
         "add": "Crear nuevo elemento",
@@ -134,5 +162,9 @@
     "navigation": {
         "create": "Crear Elemento",
         "back": "Regresar"
+    },
+    "tabs": {
+        "translations": "Traducciones",
+        "types": "Tipos De Productos"
     }
 }

@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { CategoryListComponent } from './category-list/category-list.component';
-import {MatSelectModule} from '@angular/material/select'; 
 import { CategoryResolver } from 'src/app/core/resolvers/category.resolver';
 import { TranslationsResolver } from 'src/app/core/resolvers/translations.resolver';
+
 const routes: Routes = [
   {
     path: "",
@@ -42,7 +42,7 @@ const routes: Routes = [
     resolve: {category: CategoryResolver, trans: TranslationsResolver},
     data: {
       title: "title.categories.preview",
-      card: "layout.card.title.categories.edit.edit",
+      card: "layout.card.title.categories.edit.preview",
       readonly: true,
       update: false,
     }

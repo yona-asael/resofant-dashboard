@@ -1,10 +1,11 @@
 import { Model } from "./model";
 
-export class CategoryModel extends Model {
+export class TypeModel extends Model {
     public slug: string;
     public status: string;
     public name: string;
     public description: string;
+    public category: string;
 
     constructor() {
         super();
@@ -12,6 +13,7 @@ export class CategoryModel extends Model {
         this.status = "";
         this.name = "";
         this.description = "";
+        this.category = '';
     }
 
     public clear() {
@@ -19,5 +21,6 @@ export class CategoryModel extends Model {
         this.status = "";
         this.name = "";
         this.description = "";
+        this.category = '';
     }
 }

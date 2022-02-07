@@ -20,7 +20,7 @@ export class Table<T>  {
     
     private filters: IHTTPParamsCriteria[] = [];
     private sortDirections: SortingModel[] = [];
-    
+    private customParams: IHTTPParamsCriteria[] = [];
     private service: BaseService;
     
     public sort: MatSort;
@@ -86,7 +86,7 @@ export class Table<T>  {
 
     public loadList(): void {
         const query = new QueryStringModel(
-            [...this.filters],
+            [...this.filters, ...this.customParams],
             [],
             this.getPagination,
             this.sortDirections
